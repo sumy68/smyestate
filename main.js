@@ -84,8 +84,35 @@ async function loadPartial(id, file) {
     }
   }
   
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn  = form.querySelector('.fsubmit');
+    btn.textContent = 'Wird gesendet...';
+    btn.disabled = true;
+  
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        btn.textContent = '✓ Anfrage gesendet!';
+        setTimeout(() => { closeOverlay(); form.reset(); btn.textContent = 'Jetzt kostenlosen Termin anfragen'; btn.disabled = false; }, 2000);
+      } else {
+        btn.textContent = 'Fehler – bitte erneut versuchen';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Fehler – bitte erneut versuchen';
+      btn.disabled = false;
+    }
+  }
+  
   window.openModal    = openModal;
   window.closeOverlay = closeOverlay;
+  window.handleSubmit = handleSubmit;
   
   // ── SLIDER ──
   function initSlider() {

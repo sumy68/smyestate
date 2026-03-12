@@ -9,17 +9,17 @@
       </a>
       <div class="footer-company">SMY ESTATE GmbH</div>
       <div class="footer-addr">
-        Musterstraße 1<br>
-        80331 München<br><br>
+        Schellingstr. 109a<br>
+        80798 München<br><br>
         Kontakt:<br>
-        +49 000 000 000<br>
-        info@smyestate.de
+        +49 152 36137216<br>
+        info@smyestate.com
       </div>
       <div class="footer-bottom">
         <div class="footer-copy">© 2025 SMY Estate. Alle Rechte vorbehalten.</div>
         <div class="footer-legal">
-          <a href="#">Datenschutzrichtlinie</a>
-          <a href="#">Impressum</a>
+          <a href="datenschutz.html">Datenschutzrichtlinie</a>
+          <a href="impressum.html">Impressum</a>
         </div>
       </div>
     </div>
@@ -32,32 +32,34 @@
       <span class="modal-tag">Kostenloses Erstgespräch</span>
       <h3>Infotermin vereinbaren</h3>
       <p class="modal-sub">Wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
-      <div class="frow">
-        <label>Vorname &amp; Nachname</label>
-        <input type="text" placeholder="Max Mustermann">
-      </div>
-      <div class="frow">
-        <label>Unternehmen</label>
-        <input type="text" placeholder="Muster Bau GmbH">
-      </div>
-      <div class="frow">
-        <label>E-Mail-Adresse</label>
-        <input type="email" placeholder="max@mustermann.de">
-      </div>
-      <div class="frow">
-        <label>Telefonnummer</label>
-        <input type="tel" placeholder="+49 123 456789">
-      </div>
-      <div class="frow">
-        <label>Wie viele Einheiten möchten Sie vermarkten?</label>
-        <select>
-          <option>1–10 Einheiten</option>
-          <option>11–30 Einheiten</option>
-          <option>31–100 Einheiten</option>
-          <option>100+ Einheiten</option>
-        </select>
-      </div>
-      <button class="fsubmit">Jetzt kostenlosen Termin anfragen</button>
-      <p class="fnote">🔒 Ihre Daten werden vertraulich behandelt.</p>
+      <form action="https://formspree.io/f/xqeybebk" method="POST" onsubmit="handleSubmit(event)">
+        <div class="frow">
+          <label>Vorname &amp; Nachname</label>
+          <input type="text" name="name" placeholder="Max Mustermann" required>
+        </div>
+        <div class="frow">
+          <label>Unternehmen</label>
+          <input type="text" name="unternehmen" placeholder="Muster Bau GmbH">
+        </div>
+        <div class="frow">
+          <label>E-Mail-Adresse</label>
+          <input type="email" name="email" placeholder="max@mustermann.de" required>
+        </div>
+        <div class="frow">
+          <label>Telefonnummer</label>
+          <input type="tel" name="telefon" placeholder="+49 123 456789" required>
+        </div>
+        <div class="frow">
+          <label>Wie viele Einheiten möchten Sie vermarkten?</label>
+          <select name="einheiten">
+            <option>1–10 Einheiten</option>
+            <option>11–30 Einheiten</option>
+            <option>31–100 Einheiten</option>
+            <option>100+ Einheiten</option>
+          </select>
+        </div>
+        <button type="submit" class="fsubmit">Jetzt kostenlosen Termin anfragen</button>
+        <p class="fnote">🔒 Ihre Daten werden vertraulich behandelt.</p>
+      </form>
     </div>
   </div>
