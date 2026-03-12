@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potenzial berechnen – SMY Estate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    .rechner-hero {
+      background: var(--dark);
+      padding: 120px var(--px) 80px;
+      text-align: center;
+    }
+    .rechner-hero h1 {
+      font-size: 48px; font-weight: 800;
+      letter-spacing: -1.8px; color: #fff;
+      margin-bottom: 16px;
+    }
+    .rechner-hero p {
+      font-size: 17px; color: rgba(255,255,255,.6);
+      max-width: 560px; margin: 0 auto;
+    }
+
+    /* ── CALC WRAPPER ── */
+    .rechner-wrap {
+      max-width: 900px;
+      margin: -48px auto 80px;
+      padding: 0 24px;
+    }
+
+    .calc-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 60px rgba(0,0,0,.10);
+      overflow: hidden;
+    }
+
+    .calc-body {
+      padding: 48px;
+    }
+
+    /* ── SECTIONS ── */
+    .calc-section-title {
+      font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--lgrey); margin-bottom: 20px;
+    }
+
+    .calc-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .calc-row.three { grid-template-columns: 1fr 1fr 1fr; }
+    .calc-row.one   { grid-template-columns: 1fr; }
+
+    .calc-field {
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .calc-field label {
+      font-size: 13px; font-weight: 600; color: var(--text);
+    }
+    .calc-field input,
+    .calc-field select {
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: var(--font);
+      color: var(--text);
+      background: #fff;
+      transition: border-color .15s;
+      outline: none;
+      appearance: none;
+    }
+    .calc-field input:focus,
+    .calc-field select:focus {
+      border-color: var(--accent);
+    }
+    .calc-field .unit-wrap {
+      position: relative;
+    }
+    .calc-field .unit-wrap input {
+      padding-right: 44px;
+      width: 100%;
+    }
+    .calc-field .unit {
+      position: absolute; right: 14px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px; color: var(--lgrey); font-weight: 500;
+      pointer-events: none;
+    }
+
+    .divider {
+      border: none; border-top: 1.5px solid var(--border);
+      margin: 32px 0;
+    }
+
+    /* ── SLIDER ── */
+    .slider-wrap { display: flex; flex-direction: column; gap: 10px; }
+    .slider-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--lgrey); }
+    input[type=range] {
+      width: 100%; accent-color: var(--accent);
+      height: 4px; cursor: pointer;
+    }
+    .slider-val {
+      font-size: 22px; font-weight: 800; color: var(--accent);
+      letter-spacing: -0.5px;
+    }
+
+    /* ── CALC BUTTON ── */
+    .calc-btn-wrap {
+      text-align: center; margin-top: 36px;
+    }
+    .calc-btn-wrap button {
+      font-size: 16px; padding: 16px 48px;
+    }
+
+    /* ── RESULTS ── */
+    .results {
+      background: var(--dark);
+      padding: 48px;
+      display: none;
+    }
+    .results.show { display: block; }
+
+    .results-title {
+      font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: rgba(255,255,255,.4); margin-bottom: 28px;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .res-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 14px;
+      padding: 24px 20px;
+    }
+    .res-card-label {
+      font-size: 12px; color: rgba(255,255,255,.5);
+      font-weight: 500; margin-bottom: 10px; line-height: 1.4;
+    }
+    .res-card-val {
+      font-size: 30px; font-weight: 800;
+      color: #fff; letter-spacing: -1px;
+    }
+    .res-card-val span {
+      color: #4ade80; /* green */
+    }
+    .res-card.highlight {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .res-card.highlight .res-card-label { color: rgba(255,255,255,.7); }
+
+    .results-cta {
+      text-align: center; margin-top: 8px;
+    }
+    .results-cta p {
+      color: rgba(255,255,255,.5); font-size: 14px; margin-bottom: 20px;
+    }
+
+    /* ── NOTE ── */
+    .calc-note {
+      font-size: 12px; color: var(--lgrey);
+      text-align: center; margin-top: 20px; line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .rechner-hero { padding: 100px 24px 60px; }
+      .rechner-hero h1 { font-size: 32px; }
+      .calc-body, .results { padding: 28px 24px; }
+      .calc-row, .calc-row.three { grid-template-columns: 1fr; }
+      .results-grid { grid-template-columns: 1fr; }
+      .rechner-wrap { margin-top: -32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <main>
+
+    <div class="rechner-hero">
+      <h1>Potenzial berechnen</h1>
+      <p>Finden Sie heraus, wie viele Kapitalanleger für Ihr Projekt in Frage kommen und welche Steuervorteile Sie kommunizieren können.</p>
+    </div>
+
+    <div class="rechner-wrap">
+      <div class="calc-card">
+
+        <div class="calc-body">
+
+          <div class="calc-section-title">Ihr Projekt</div>
+
+          <div class="calc-row">
+            <div class="calc-field">
+              <label>Einheiten gesamt</label>
+              <div class="unit-wrap">
+                <input type="number" id="einheiten" placeholder="z.B. 20" min="1" max="500">
+                <span class="unit">Stk.</span>
+              </div>
+            </div>
+            <div class="calc-field">
+              <label>Bundesland</label>
+              <select id="bundesland">
+                <option value="">Bitte wählen</option>
+                <option value="BY">Bayern</option>
+                <option value="BW">Baden-Württemberg</option>
+                <option value="BE">Berlin</option>
+                <option value="BB">Brandenburg</option>
+                <option value="HB">Bremen</option>
+                <option value="HH">Hamburg</option>
+                <option value="HE">Hessen</option>
+                <option value="MV">Mecklenburg-Vorpommern</option>
+                <option value="NI">Niedersachsen</option>
+                <option value="NW">Nordrhein-Westfalen</option>
+                <option value="RP">Rheinland-Pfalz</option>
+                <option value="SL">Saarland</option>
+                <option value="SN">Sachsen</option>
+                <option value="ST">Sachsen-Anhalt</option>
+                <option value="SH">Schleswig-Holstein</option>
+                <option value="TH">Thüringen</option>
+              </select>
+            </div>
+          </div>
+
+          <hr class="divider">
+          <div class="calc-section-title">Beispieleinheit</div>
+
+          <div class="calc-row three">
+            <div class="calc-field">
+              <label>Größe</label>
+              <div class="unit-wrap">
+                <input type="number" id="groesse" placeholder="75" min="10">
+                <span class="unit">m²</span>
+              </div>
+            </div>
+            <div class="calc-field">
+              <label>Kaufpreis</label>
+              <div class="unit-wrap">
+                <input type="number" id="kaufpreis" placeholder="350.000" min="50000">
+                <span class="unit">€</span>
+              </div>
+            </div>
+            <div class="calc-field">
+              <label>Mieterwartung/m²</label>
+              <div class="unit-wrap">
+                <input type="number" id="miete" placeholder="12" min="1" max="50" step="0.5">
+                <span class="unit">€</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-row">
+            <div class="calc-field">
+              <label>Abschreibungsmöglichkeit</label>
+              <select id="afa">
+                <option value="dega5">Degressive AfA 5%</option>
+                <option value="sond5">Sonder AfA 5%</option>
+                <option value="both10" selected>5% degressive AfA + 5% Sonder-AfA</option>
+                <option value="lin3">Lineare AfA 3%</option>
+                <option value="lin2">Lineare AfA 2%</option>
+                <option value="denkmal">Denkmal AfA</option>
+              </select>
+            </div>
+            <div class="calc-field">
+              <label>Fertigstellung</label>
+              <select id="fertig">
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="fertig">Bereits fertiggestellt</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="calc-row one" style="margin-top:8px;">
+            <div class="calc-field">
+              <label>Gebäudeanteil am Kaufpreis: <strong id="gebAnteilLabel">70%</strong></label>
+              <div class="slider-wrap">
+                <input type="range" id="gebAnteil" min="50" max="90" value="70" step="5">
+                <div class="slider-labels"><span>50%</span><span>90%</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-btn-wrap">
+            <button class="btn-accent lg" onclick="berechnen()">Potenzial berechnen →</button>
+          </div>
+
+        </div><!-- /calc-body -->
+
+        <!-- RESULTS -->
+        <div class="results" id="results">
+          <div class="results-title">Ihre Ergebnisse</div>
+          <div class="results-grid">
+            <div class="res-card">
+              <div class="res-card-label">Steuervorteile pro Einheit p.a.</div>
+              <div class="res-card-val"><span id="r-stvorteil-ein">–</span></div>
+            </div>
+            <div class="res-card">
+              <div class="res-card-label">Steuervorteile p.a. Gesamt</div>
+              <div class="res-card-val"><span id="r-stvorteil-ges">–</span></div>
+            </div>
+            <div class="res-card highlight">
+              <div class="res-card-label">Bestandskapitalanleger die in Frage kommen</div>
+              <div class="res-card-val"><span id="r-anleger">–</span></div>
+            </div>
+          </div>
+          <div class="results-cta">
+            <p>Diese Berechnung basiert auf einem Grenzsteuersatz von 42 % und dient als Orientierung.<br>Im Infotermin zeigen wir Ihnen das genaue Potenzial für Ihr Projekt.</p>
+            <button class="btn-accent lg" onclick="openModal()">Jetzt Infotermin vereinbaren</button>
+          </div>
+        </div>
+
+      </div><!-- /calc-card -->
+
+      <p class="calc-note">* Alle Angaben ohne Gewähr. Die Berechnung dient ausschließlich zur Orientierung und ersetzt keine steuerliche Beratung.</p>
+
+    </div><!-- /rechner-wrap -->
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="main.js"></script>
+  <script>
+    // Slider label
+    document.getElementById('gebAnteil').addEventListener('input', function() {
+      document.getElementById('gebAnteilLabel').textContent = this.value + '%';
+    });
+
+    // AfA Satz je nach Auswahl
+    function getAfaRate(afaType) {
+      switch(afaType) {
+        case 'dega5':   return 0.05;
+        case 'sond5':   return 0.05;
+        case 'both10':  return 0.10;
+        case 'lin3':    return 0.03;
+        case 'lin2':    return 0.02;
+        case 'denkmal': return 0.09;
+        default:        return 0.05;
+      }
+    }
+
+    // Bundesland-Multiplikator (Nachfrage-Index)
+    function getBundeslandFaktor(bl) {
+      const faktoren = {
+        'BY': 1.3, 'BW': 1.2, 'BE': 1.25, 'HH': 1.2, 'HE': 1.1,
+        'NW': 1.15, 'BB': 1.0, 'NI': 1.0, 'SH': 0.95,
+        'RP': 0.95, 'SN': 0.9, 'TH': 0.85, 'ST': 0.85,
+        'MV': 0.85, 'SL': 0.9, 'HB': 0.95
+      };
+      return faktoren[bl] || 1.0;
+    }
+
+    function fmt(n) {
+      return '+' + n.toLocaleString('de-DE');
+    }
+
+    function berechnen() {
+      const einheiten  = parseFloat(document.getElementById('einheiten').value) || 0;
+      const kaufpreis  = parseFloat(document.getElementById('kaufpreis').value) || 0;
+      const groesse    = parseFloat(document.getElementById('groesse').value) || 0;
+      const miete      = parseFloat(document.getElementById('miete').value) || 0;
+      const afa        = document.getElementById('afa').value;
+      const bundesland = document.getElementById('bundesland').value;
+      const gebAnteil  = parseFloat(document.getElementById('gebAnteil').value) / 100;
+
+      // Validierung
+      if (!einheiten || !kaufpreis || !groesse || !miete) {
+        alert('Bitte füllen Sie alle Felder aus.');
+        return;
+      }
+
+      // Berechnung
+      const afaRate       = getAfaRate(afa);
+      const gebaeudewert  = kaufpreis * gebAnteil;
+      const afaBetrag     = gebaeudewert * afaRate;           // AfA pro Jahr
+      const steuervorteil = Math.round(afaBetrag * 0.42);    // 42% Grenzsteuersatz
+      const stGesamt      = Math.round(steuervorteil * einheiten);
+
+      // Anleger-Berechnung: Basis 600 + Einheiten-Faktor + Bundesland-Faktor
+      const blFaktor      = getBundeslandFaktor(bundesland);
+      const anlegerBasis  = Math.round((420 + einheiten * 18 + (kaufpreis / 1000) * 0.8) * blFaktor);
+      const anleger       = Math.min(Math.max(anlegerBasis, 120), 5000);
+
+      // Ergebnisse anzeigen
+      document.getElementById('r-stvorteil-ein').textContent = fmt(steuervorteil) + ' €';
+      document.getElementById('r-stvorteil-ges').textContent = fmt(stGesamt) + ' €';
+      document.getElementById('r-anleger').textContent       = fmt(anleger);
+
+      const results = document.getElementById('results');
+      results.classList.add('show');
+      results.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  </script>
+</body>
+</html>
