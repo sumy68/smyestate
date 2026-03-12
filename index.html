@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMY Estate – Qualifizierte Kapitalanleger in Ø 42 Tagen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header wird per JS geladen -->
+  <div id="header-placeholder"></div>
+
+  <!-- ══════════════════════════════════════
+       MAIN
+  ══════════════════════════════════════ -->
+  <main>
+
+    <!-- 1. HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-gradient"></div>
+      <div class="hero-inner">
+        <h1>Notartermine mit finanzstarken<br>Kapitalanlegern in Ø 42 Tagen</h1>
+        <p class="hero-sub">Für Bauträger, Projektentwickler, Makler und Kapitalanlagevertriebe</p>
+        <div class="hero-btns">
+          <button class="btn-accent lg" onclick="openModal()">Infotermin vereinbaren</button>
+          <a href="#rechner" class="btn-outline-w lg">Potenzial berechnen</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hstat">
+            <div class="hstat-n">Ø 11 Käufer</div>
+            <div class="hstat-l">in &lt;90 Tagen</div>
+          </div>
+          <div class="hstat">
+            <div class="hstat-n">Bei 120+ Projekten</div>
+            <div class="hstat-l">erfolgreich umgesetzt</div>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+
+    <!-- 2. TRUST GRID -->
+    <section class="trust">
+      <div class="trust-inner">
+        <div class="trust-grid">
+          <div class="tcard">
+            <span class="tcard-icon"><svg viewBox="0 0 24 24"><path d="M3 3h18v5H3zM3 10h18M7 14h4M7 17h6"/></svg></span>
+            <div class="tcard-title">Bankgeprüfte Bonität</div>
+            <div class="tcard-desc">Genügend Eigenkapital &amp; positiver Schufa-Score bereits nachgewiesen.</div>
+          </div>
+          <div class="tcard tcard-photo">
+            <div class="tcard-ph">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+          </div>
+          <div class="tcard">
+            <span class="tcard-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><circle cx="12" cy="13" r="3"/><path d="M12 3v4"/></svg></span>
+            <div class="tcard-title">Finanzierungsbestätigung liegt vor</div>
+            <div class="tcard-desc">Finanzierungsberater hat Darlehen verbindlich freigegeben; Anleger ist bereit für den Kauf.</div>
+          </div>
+          <div class="tcard">
+            <span class="tcard-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 3 3"/><path d="M11 8v3M8 11h6" opacity=".5"/></svg></span>
+            <div class="tcard-title">Wirtschaftlichkeitsberechnung akzeptiert</div>
+            <div class="tcard-desc">Investor hat das Cashflow- und Steuermodell zu den angegebenen Konditionen zugesagt.</div>
+          </div>
+          <div class="tcard tcard-teal">
+            <div class="tcard-teal-check">✓</div>
+            <div class="tcard-teal-text">Jeder von uns übermittelte Kapitalanleger bringt diese Voraussetzungen mit</div>
+          </div>
+          <div class="tcard">
+            <span class="tcard-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M12 9v4"/><circle cx="12" cy="17" r=".5" fill="white"/></svg></span>
+            <div class="tcard-title">Beurkundungsreif</div>
+            <div class="tcard-desc">Käufer wünscht Besichtigung + Notartermin innerhalb der nächsten 2 Wochen.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ZAHLEN -->
+    <section class="zahlen">
+      <div class="zahlen-inner">
+        <h2>Unsere Zahlen aus über<br>3 Jahren Partnerschaften</h2>
+        <div class="zahlen-card">
+          <div class="zahlen-photo">
+            <div class="zahlen-photo-ph">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,.1)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+          </div>
+          <div class="zahlen-info">
+            <div class="zahlen-vol">274 Mio. € vermitteltes Kaufvolumen</div>
+            <div class="zahlen-logos">
+              <div class="logo-pill">PARTNER 1</div>
+              <div class="logo-pill">PARTNER 2</div>
+              <div class="logo-pill">PARTNER 3</div>
+            </div>
+            <button class="btn-accent" onclick="openModal()">Referenzen ansehen</button>
+            <p class="zahlen-note">120+ Projekte, 274 Mio. € Kaufvolumen vermittelt, Ø 44%<br>
+            Abverkauf in 56 Tagen durch Notartermine mit Kapitalanlegern.<br>
+            Von Partnerbanken dokumentiert, ohne Preisnachlässe und courtagefrei.</p>
+          </div>
+        </div>
+        <div class="zahlen-stats">
+          <div class="zstat">
+            <div class="zstat-n">120+ Projekte</div>
+            <div class="zstat-l">erfolgreich durchgeführt</div>
+          </div>
+          <div class="zstat">
+            <div class="zstat-n">Ø 44%</div>
+            <div class="zstat-l">Abverkauf in unter 56 Tagen</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MEHR EINHEITEN -->
+    <section class="mehr" id="system">
+      <div class="mehr-inner">
+        <h2>Mehr Einheiten verkaufen durch<br>Notartermine mit Kapitalanlegern</h2>
+        <div class="mehr-grid">
+          <div class="mehr-card" id="sliderCard">
+            <div class="slide active" id="slide1">
+              <div class="person-rows">
+                <div class="person-row">
+                  <div class="person-avatar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+                  <div class="person-lines"><div class="pline" style="width:65%"></div><div class="pline" style="width:40%"></div></div>
+                </div>
+                <div class="person-row">
+                  <div class="person-avatar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+                  <div class="person-lines"><div class="pline" style="width:72%"></div><div class="pline" style="width:35%"></div></div>
+                </div>
+              </div>
+              <div class="mehr-card-title">Sofort Zugriff auf 5.000+<br>Bestandskapitalanleger</div>
+              <div class="mehr-card-desc">Sie erhalten Zugriff auf Kapitalanleger, die durch uns bei einem Partner mindestens eine Einheit gekauft haben.</div>
+            </div>
+            <div class="slide" id="slide2">
+              <div class="person-rows" style="flex-direction:row;align-items:center;gap:0;padding:16px;">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;"><div style="width:50px;height:50px;border-radius:50%;background:var(--card);display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><span style="font-size:10px;color:var(--lgrey);">Kaufinteressenten</span></div>
+                <div style="color:var(--border);font-size:16px;padding:0 6px;">···</div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;"><div style="width:50px;height:50px;border-radius:50%;background:var(--card);display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07"/></svg></div><span style="font-size:10px;color:var(--lgrey);">Qualifizierung</span></div>
+                <div style="color:var(--border);font-size:16px;padding:0 6px;">···</div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;"><div style="width:50px;height:50px;border-radius:50%;background:var(--card);display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><span style="font-size:10px;color:var(--lgrey);">Abschluss</span></div>
+              </div>
+              <div class="mehr-card-title">Vorvertrieb: Wir überzeugen<br>Käufer von Ihrem Projekt</div>
+              <div class="mehr-card-desc">Wir klären Investitionsvolumen, Wunscheinheit(en), Steuerfragen und senden das individuelle Kalkulations-Sheet.</div>
+            </div>
+            <div class="slide" id="slide3">
+              <div class="person-rows" style="padding:16px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><div style="background:var(--accent);color:#fff;font-size:13px;font-weight:600;padding:10px 14px;border-radius:8px;flex:1;">Überprüft</div><div style="width:3px;height:36px;background:var(--border);border-radius:2px;flex-shrink:0;"></div><div style="background:var(--card);border-radius:8px;height:36px;width:60px;"></div></div>
+              </div>
+              <div class="mehr-card-title">Finanzierungs-Check:<br>Nur kaufbereite Anleger</div>
+              <div class="mehr-card-desc">Wir übermitteln Ihnen die Daten mit signiertem Kalkulations-Sheet und Finanzierungszusage.</div>
+            </div>
+            <div class="slide" id="slide4">
+              <div class="person-rows" style="padding:16px;">
+                <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(107,30,45,.3)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><div style="flex:1;height:8px;border-radius:4px;background:var(--card);"></div></div>
+                <div style="display:flex;gap:12px;align-items:center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(107,30,45,.3)" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg><div style="flex:1;height:8px;border-radius:4px;background:var(--card);"></div></div>
+              </div>
+              <div class="mehr-card-title">Beurkundungsreife<br>Übergabe der Kapitalanleger</div>
+              <div class="mehr-card-desc">Mit signiertem Kalkulations-Sheet und Finanzierungszusage – nur noch den Notartermin einplanen.</div>
+            </div>
+          </div>
+          <div class="mehr-right">
+            <p class="mehr-text">Verkaufen Sie schneller, sparen Sie Zinskosten und vermeiden Sie Preisnachlässe mit unseren beurkundungsreifen Kapitalanlegern.</p>
+            <button class="btn-accent" onclick="openModal()">Infotermin vereinbaren</button>
+            <div class="mehr-list">
+              <div class="mitem active" onclick="switchSlide(1)" data-slide="1"><span class="mnum">1</span><span class="mtext">Sofort Zugriff auf 5.000+ Bestandskapitalanleger</span></div>
+              <div class="mitem" onclick="switchSlide(2)" data-slide="2"><span class="mnum">2</span><span class="mtext">Vorvertrieb: Wir überzeugen Käufer von Ihrem Projekt</span></div>
+              <div class="mitem" onclick="switchSlide(3)" data-slide="3"><span class="mnum">3</span><span class="mtext">Finanzierungs-Check: Nur kaufbereite Anleger mit Zusage</span></div>
+              <div class="mitem" onclick="switchSlide(4)" data-slide="4"><span class="mnum">4</span><span class="mtext">Beurkundungsreife Übergabe der Kapitalanleger</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. WARUM -->
+    <section class="warum">
+      <div class="warum-inner">
+        <h2>Warum Sie an Kapitalanleger<br>verkaufen sollten</h2>
+        <div class="warum-grid">
+          <div>
+            <div class="witem-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" stroke-linecap="round"/></svg></div>
+            <div class="witem-title">Zinsen steuerlich<br>geltend machen</div>
+            <div class="witem-desc">Kapitalanleger setzen Darlehenszinsen voll als Werbungskosten ab. Mehr zahlungsfähige Käufer, kein Preisdruck für Sie.</div>
+          </div>
+          <div>
+            <div class="witem-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+            <div class="witem-title">Schutz vor<br>Inflation gesichert</div>
+            <div class="witem-desc">Investoren handeln renditegetrieben. Auch bei Krisen sichern sie Sachwerte – Ihre Absatzrate bleibt stabil, wenn Eigennutzer warten.</div>
+          </div>
+          <div>
+            <div class="witem-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-4"/></svg></div>
+            <div class="witem-title">Steuerreduzierung durch<br>Abschreibungsmodelle</div>
+            <div class="witem-desc">Neubau + Sonder-AfA §7b senken Anlegersteuerlast. Dadurch akzeptieren sie höhere Kaufpreise – Ihre Marge steigt.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. WIR KENNEN -->
+    <section class="wir">
+      <div class="wir-inner">
+        <h2>Wir kennen Ihre Herausforderungen</h2>
+        <div class="wir-grid">
+          <div class="wir-photo">
+            <div class="wir-photo-ph">
+              <div class="wir-photo-center">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                <span style="font-size:11px;color:rgba(255,255,255,.2);">Immobilienfoto einfügen</span>
+              </div>
+              <div class="wir-photo-label"><span>SMY ESTATE</span></div>
+            </div>
+          </div>
+          <div class="wir-content">
+            <div class="wir-title">Von Bauträgern für Bauträger</div>
+            <div class="wir-text">Wir unterstützen Bauträger, Projektentwickler und Makler deutschlandweit dabei, ihre Einheiten schneller zu verkaufen – durch qualifizierte, beurkundungsreife Kapitalanleger.<br><br>Unser Finanzierungspartner übernimmt die vollständige Bonitätsprüfung und stellt verbindliche Finanzierungszusagen aus. Sie erhalten nur kaufbereite Käufer – ohne Risiko, ohne Preisnachlass.</div>
+            <button class="btn-accent" onclick="openModal()">Infotermin vereinbaren</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. PROCESS -->
+    <section class="process" id="process">
+      <div class="process-inner">
+        <h2>Wie wir für beurkundungsreife<br>Notartermine mit Kapitalanlegern sorgen</h2>
+        <div class="pcard">
+          <div class="pcard-text">
+            <div class="pcard-title">Investor Targeting: Anfragen von Kapitalanlegern</div>
+            <div class="pcard-desc">Wir erstellen Anzeigen, die Kapitalanleger direkt ansprechen und im gesamten Internet ausgespielt werden. Rendite und Steuervorteile kommuniziert – große Anzahl an Anfragen von Anlegern mit mindestens 15 % Eigenkapital.</div>
+          </div>
+          <div class="pcard-visual">
+            <div style="position:relative;width:110px;height:110px;"><div style="position:absolute;inset:0;background:var(--accent);border-radius:50%;opacity:.1;"></div><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:6px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.3" opacity=".5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" opacity=".7"><path d="M3 3h18v5H3zM3 10h18M7 14h4M7 17h6"/></svg></div></div>
+          </div>
+        </div>
+        <div class="pcard reverse">
+          <div class="pcard-visual" style="flex-direction:column;align-items:center;padding:32px;gap:16px;background:#EAF0F4;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:200px;">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><div style="width:48px;height:48px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.07);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><span style="font-size:10px;color:var(--lgrey);">Eintragung</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><div style="width:48px;height:48px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.07);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><span style="font-size:10px;color:var(--lgrey);">Kaufzusage</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><div style="width:48px;height:48px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.07);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07"/></svg></div><span style="font-size:10px;color:var(--lgrey);">Beratung</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px;"><div style="width:48px;height:48px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.07);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></div><span style="font-size:10px;color:var(--lgrey);">Kalkulation</span></div>
+            </div>
+          </div>
+          <div class="pcard-text">
+            <div class="pcard-title">Deep-Dive-Beratung: Wir überzeugen Käufer von Ihrem Projekt</div>
+            <div class="pcard-desc">Alle Kapitalanleger werden innerhalb von 5 Minuten nach Eintragung angerufen. Wir klären Anlageziel, Investitionsvolumen, beantworten Steuerfragen live und senden das Kalkulations-Sheet. Erst dann erteilt der Anleger seine verbindliche Kaufzusage.</div>
+          </div>
+        </div>
+        <div class="pcard">
+          <div class="pcard-text">
+            <div class="pcard-title">Finanzierungs-Check: Nur kaufbereite Anleger mit Zusage</div>
+            <div class="pcard-desc">Unser Finanzierungsberater prüft Schufa, Eigenkapitalnachweis und Tragbarkeit. Wenn alles passt, stellt er eine verbindliche Finanzierungszusage als PDF aus.</div>
+          </div>
+          <div class="pcard-visual" style="flex-direction:column;gap:12px;align-items:flex-start;padding:36px;">
+            <div style="display:flex;align-items:center;gap:8px;width:100%;"><div style="background:var(--accent);color:#fff;font-size:13px;font-weight:600;padding:10px 14px;border-radius:8px;flex:2;">Überprüft</div><div style="width:3px;height:36px;background:var(--border);border-radius:2px;flex-shrink:0;"></div><div style="background:#fff;border-radius:8px;height:36px;flex:1;border:1px solid var(--border);"></div></div>
+            <div style="display:flex;flex-direction:column;gap:8px;width:100%;"><div style="background:#fff;border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px;border:1px solid var(--border);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:12px;font-weight:500;">Schufa bestätigt</span></div><div style="background:#fff;border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px;border:1px solid var(--border);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:12px;font-weight:500;">Eigenkapital nachgewiesen</span></div></div>
+          </div>
+        </div>
+        <div class="pcard reverse">
+          <div class="pcard-visual" style="background:#E4EDF2;flex-direction:column;gap:14px;">
+            <div style="display:flex;gap:10px;align-items:center;"><div style="width:48px;height:48px;border-radius:50%;background:rgba(107,30,45,.18);"></div><div style="width:48px;height:48px;border-radius:50%;background:rgba(107,30,45,.12);"></div></div>
+            <div style="background:#fff;border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 2px 12px rgba(0,0,0,.07);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:13px;font-weight:600;">Beurkundungsbereit</span></div>
+          </div>
+          <div class="pcard-text">
+            <div class="pcard-title">Beurkundungsreife Übergabe der Kapitalanleger</div>
+            <div class="pcard-desc">Erst wenn alle Schritte abgeschlossen sind, übermitteln wir Ihnen Käuferdaten, signiertes Kalkulations-Sheet und Finanzierungszusage – nur noch den Notartermin einplanen.</div>
+          </div>
+        </div>
+        <div class="bonus">
+          <div class="bonus-text">
+            <div class="bonus-title">Bonus: Unsere SMY Estate<br>Kapitalanleger-Bestandsliste</div>
+            <div class="bonus-desc">Über Jahre haben wir 5.000+ Kapitalanleger gewonnen, die durch uns bei einem Partner mindestens eine Einheit gekauft haben. Sie erhalten Zugriff auf diese Käufer – oft zweistellige Notartermine noch vor dem Vermarktungsstart.</div>
+          </div>
+          <div class="bonus-dark">
+            <div class="bonus-num">5000</div>
+            <div class="bonus-num-label">Kapitalanleger</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. SO PROFITIEREN -->
+    <section class="profitieren">
+      <div class="profitieren-inner">
+        <h2>So profitieren Sie heute von SMY Estate</h2>
+        <div class="profit-grid">
+          <div class="pf-card"><div class="pf-inner" style="background:linear-gradient(160deg,#1a2d3a,#253d4e);"></div><div class="pf-label"><div class="pf-label-text">Planbar und auf<br>Abruf Kapitalanleger</div></div></div>
+          <div class="pf-card"><div class="pf-inner" style="background:linear-gradient(160deg,#1e3545,#2a4a5e);"></div><div class="pf-label"><div class="pf-label-text">Einsparung von Zinskosten<br>durch kurze Vermarktungszeit</div></div></div>
+          <div class="pf-card"><div class="pf-inner" style="background:linear-gradient(160deg,#22384a,#2e4f63);"></div><div class="pf-label"><div class="pf-label-text">Einsparung von Makler-<br>und Finanzierungskosten</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. DARK CTA -->
+    <section class="dark-cta">
+      <h2>Gewinnen Sie mit uns beurkundungsreife<br>Kapitalanleger in 42 Tagen</h2>
+      <p class="dark-cta-sub">Schluss mit monatelangem Warten auf qualifizierte Käufer</p>
+      <div class="dark-cta-btns">
+        <button class="btn-accent lg" onclick="openModal()">Infotermin vereinbaren</button>
+        <button class="btn-white lg">Potenzial berechnen</button>
+      </div>
+    </section>
+
+    <!-- 10. FINAL CTA BANNER -->
+    <section class="final-cta">
+      <div class="final-inner">
+        <div class="final-card">
+          <div class="final-left">
+            <div class="final-title">In 42 Tagen zu beurkundungsreifen<br>Notarterminen mit Kapitalanlegern</div>
+            <div class="final-sub">Schluss mit monatelangem Warten auf qualifizierte Käufer</div>
+            <button class="btn-accent" style="font-size:14px;padding:12px 26px;" onclick="openModal()">Infotermin vereinbaren</button>
+          </div>
+          <div class="final-photo">
+            <div class="final-photo-ph">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer wird per JS geladen -->
+  <div id="footer-placeholder"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
