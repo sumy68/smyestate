@@ -7,6 +7,57 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .hero-headline-row {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-bottom: 0;
+    }
+    .hero-headline-row h1 {
+      margin: 0;
+      flex: 1;
+    }
+    .hero-partner-side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      border-left: 1px solid rgba(255,255,255,0.2);
+      padding-left: 32px;
+      flex-shrink: 0;
+    }
+    .hero-partner-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .hero-partner-logo {
+      height: 40px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+    @media (max-width: 768px) {
+      .hero-headline-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .hero-partner-side {
+        border-left: none;
+        border-top: 1px solid rgba(255,255,255,0.2);
+        padding-left: 0;
+        padding-top: 20px;
+        flex-direction: row;
+        align-items: center;
+        gap: 14px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -19,7 +70,13 @@
       <div class="hero-bg"></div>
       <div class="hero-gradient"></div>
       <div class="hero-inner">
-        <h1>Notartermine mit finanzstarken<br>Kapitalanlegern in Ø 42 Tagen</h1>
+        <div class="hero-headline-row">
+          <h1>Notartermine mit finanzstarken<br>Kapitalanlegern in Ø 42 Tagen</h1>
+          <div class="hero-partner-side">
+            <span class="hero-partner-label">Offizieller<br>Entwicklerpartner</span>
+            <img src="img/FiveRocks.svg" alt="FiveRocks Development" class="hero-partner-logo">
+          </div>
+        </div>
         <p class="hero-sub">Für Bauträger, Projektentwickler, Makler und Kapitalanlagevertriebe</p>
         <div class="hero-btns">
           <button class="btn-accent lg" onclick="openModal()">Infotermin vereinbaren</button>
@@ -35,6 +92,7 @@
             <div class="hstat-l">erfolgreich umgesetzt</div>
           </div>
         </div>
+
       </div>
     </section>
 
