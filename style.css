@@ -378,3 +378,43 @@
    }
    
    @media (max-width: 400px) { .zahlen-stats { grid-template-columns: 1fr; } }
+
+
+/* ══════════════════════════════════════
+   11. KÄUFER TEASER (index.html)
+══════════════════════════════════════ */
+.kaeufer-teaser {
+  background: var(--dark);
+  padding: 96px var(--px);
+  text-align: center;
+}
+.kaeufer-teaser-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.kaeufer-teaser-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: block;
+}
+.kaeufer-teaser h2 {
+  font-size: clamp(26px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.kaeufer-teaser p {
+  font-size: 16px;
+  color: rgba(255,255,255,.4);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+@media (max-width: 768px) {
+  .kaeufer-teaser { padding: 60px var(--px); }
+}
