@@ -148,6 +148,17 @@
     }
     .kf-note svg { width: 11px; height: 11px; stroke: #ccc; fill: none; stroke-width: 2; }
 
+    /* consent */
+    .kf-consent {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-top: 16px; cursor: pointer;
+      font-size: 12px; line-height: 1.5; color: var(--grey);
+    }
+    .kf-consent input { width: 16px; height: 16px; margin-top: 1px; flex-shrink: 0; accent-color: var(--accent); cursor: pointer; }
+    .kf-consent a { color: var(--accent); text-decoration: underline; }
+    .kf-btn-next:disabled { opacity: .45; cursor: not-allowed; }
+    .kf-btn-next:disabled:hover { background: var(--accent); }
+
     /* success */
     .kf-success { display: none; text-align: center; padding: 32px 28px; }
     .kf-success.active { display: block; }
@@ -268,13 +279,13 @@
               <div class="kf-avatar">TL</div>
             </div>
             <div class="kf-sp-text">
-              <strong>5.000+ Kapitalanleger</strong> vertrauen SMY Estate –<br>viele haben durch uns ihre erste Immobilie gekauft.
+              <strong>Exklusive Neubau-Projekte</strong> für Kapitalanleger –<br>vor Vermarktungsstart.
             </div>
           </div>
         </div>
 
         <!-- RIGHT: FORM -->
-        <div>
+        <div id="anfrage" style="scroll-margin-top:100px;">
           <div class="kf-form-card">
             <div class="kf-progress-bar">
               <div class="kf-progress-fill" id="progressFill" style="width:12.5%"></div>
@@ -285,52 +296,19 @@
             </div>
             <div class="kf-form-body">
 
-              <!-- 1 – Name -->
+              <!-- 1 – Alter -->
               <div class="kf-step active" data-step="1">
                 <div class="kf-q-num">01 / 08</div>
-                <div class="kf-q-title">Wie heißt du?</div>
-                <input type="text" class="kf-input" id="f-name" placeholder="Vor- und Nachname" autocomplete="name">
+                <div class="kf-q-title">Wie alt bist du?</div>
+                <input type="number" class="kf-input" id="f-alter" placeholder="z.B. 34" min="18" max="80">
                 <div class="kf-nav">
                   <button class="kf-btn-next" onclick="nextStep(1)">Weiter <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                 </div>
               </div>
 
-              <!-- 2 – Telefon -->
+              <!-- 2 – Eigenkapital -->
               <div class="kf-step" data-step="2">
                 <div class="kf-q-num">02 / 08</div>
-                <div class="kf-q-title">Deine Telefonnummer?</div>
-                <input type="tel" class="kf-input" id="f-phone" placeholder="+49 ..." autocomplete="tel">
-                <div class="kf-nav">
-                  <button class="kf-btn-back" onclick="prevStep()">← Zurück</button>
-                  <button class="kf-btn-next" onclick="nextStep(2)">Weiter <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                </div>
-              </div>
-
-              <!-- 3 – E-Mail -->
-              <div class="kf-step" data-step="3">
-                <div class="kf-q-num">03 / 08</div>
-                <div class="kf-q-title">Deine E-Mail-Adresse?</div>
-                <input type="email" class="kf-input" id="f-email" placeholder="deine@email.de" autocomplete="email">
-                <div class="kf-nav">
-                  <button class="kf-btn-back" onclick="prevStep()">← Zurück</button>
-                  <button class="kf-btn-next" onclick="nextStep(3)">Weiter <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                </div>
-              </div>
-
-              <!-- 4 – Alter -->
-              <div class="kf-step" data-step="4">
-                <div class="kf-q-num">04 / 08</div>
-                <div class="kf-q-title">Wie alt bist du?</div>
-                <input type="number" class="kf-input" id="f-alter" placeholder="z.B. 34" min="18" max="80">
-                <div class="kf-nav">
-                  <button class="kf-btn-back" onclick="prevStep()">← Zurück</button>
-                  <button class="kf-btn-next" onclick="nextStep(4)">Weiter <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                </div>
-              </div>
-
-              <!-- 5 – Eigenkapital -->
-              <div class="kf-step" data-step="5">
-                <div class="kf-q-num">05 / 08</div>
                 <div class="kf-q-title">Wie viel Eigenkapital hast du verfügbar?</div>
                 <div class="kf-options" id="opts-ek">
                   <button class="kf-option" onclick="selectOption('opts-ek', this, 'f-ek', 'unter 25.000 €')">
@@ -346,13 +324,13 @@
                 <input type="hidden" id="f-ek">
                 <div class="kf-nav">
                   <button class="kf-btn-back" onclick="prevStep()">← Zurück</button>
-                  <button class="kf-btn-next" onclick="nextStep(5)">Weiter <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                  <button class="kf-btn-next" onclick="nextStep(2)">Weiter <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                 </div>
               </div>
 
-              <!-- 6 – Einkommen -->
-              <div class="kf-step" data-step="6">
-                <div class="kf-q-num">06 / 08</div>
+              <!-- 3 – Einkommen -->
+              <div class="kf-step" data-step="3">
+                <div class="kf-q-num">03 / 08</div>
                 <div class="kf-q-title">Haushalts-Nettoeinkommen pro Monat?</div>
                 <div class="kf-options" id="opts-inc">
                   <button class="kf-option" onclick="selectOption('opts-inc', this, 'f-inc', 'unter 3.000 €')">
@@ -368,13 +346,13 @@
                 <input type="hidden" id="f-inc">
                 <div class="kf-nav">
                   <button class="kf-btn-back" onclick="prevStep()">← Zurück</button>
-                  <button class="kf-btn-next" onclick="nextStep(6)">Weiter <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                  <button class="kf-btn-next" onclick="nextStep(3)">Weiter <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                 </div>
               </div>
 
-              <!-- 7 – Zeitplan -->
-              <div class="kf-step" data-step="7">
-                <div class="kf-q-num">07 / 08</div>
+              <!-- 4 – Zeitplan -->
+              <div class="kf-step" data-step="4">
+                <div class="kf-q-num">04 / 08</div>
                 <div class="kf-q-title">Wann möchtest du kaufen?</div>
                 <div class="kf-options kf-options-2col" id="opts-time">
                   <button class="kf-option" onclick="selectOption('opts-time', this, 'f-time', '0–3 Monate')">
@@ -397,13 +375,13 @@
                 <input type="hidden" id="f-time">
                 <div class="kf-nav">
                   <button class="kf-btn-back" onclick="prevStep()">← Zurück</button>
-                  <button class="kf-btn-next" onclick="nextStep(7)">Weiter <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                  <button class="kf-btn-next" onclick="nextStep(4)">Weiter <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
                 </div>
               </div>
 
-              <!-- 8 – Erste Immobilie -->
-              <div class="kf-step" data-step="8">
-                <div class="kf-q-num">08 / 08</div>
+              <!-- 5 – Erste Immobilie -->
+              <div class="kf-step" data-step="5">
+                <div class="kf-q-num">05 / 08</div>
                 <div class="kf-q-title">Ist das deine erste Immobilie?</div>
                 <div class="kf-options" id="opts-first">
                   <button class="kf-option" onclick="selectOption('opts-first', this, 'f-first', 'Ja – erste Immobilie')">
@@ -416,7 +394,44 @@
                 <input type="hidden" id="f-first">
                 <div class="kf-nav">
                   <button class="kf-btn-back" onclick="prevStep()">← Zurück</button>
-                  <button class="kf-btn-next" onclick="submitForm()">
+                  <button class="kf-btn-next" onclick="nextStep(5)">Weiter <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                </div>
+              </div>
+
+              <!-- 6 – Name -->
+              <div class="kf-step" data-step="6">
+                <div class="kf-q-num">06 / 08</div>
+                <div class="kf-q-title">Wie heißt du?</div>
+                <input type="text" class="kf-input" id="f-name" placeholder="Vor- und Nachname" autocomplete="name">
+                <div class="kf-nav">
+                  <button class="kf-btn-back" onclick="prevStep()">← Zurück</button>
+                  <button class="kf-btn-next" onclick="nextStep(6)">Weiter <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                </div>
+              </div>
+
+              <!-- 7 – Telefon -->
+              <div class="kf-step" data-step="7">
+                <div class="kf-q-num">07 / 08</div>
+                <div class="kf-q-title">Deine Telefonnummer?</div>
+                <input type="tel" class="kf-input" id="f-phone" placeholder="+49 ..." autocomplete="tel">
+                <div class="kf-nav">
+                  <button class="kf-btn-back" onclick="prevStep()">← Zurück</button>
+                  <button class="kf-btn-next" onclick="nextStep(7)">Weiter <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                </div>
+              </div>
+
+              <!-- 8 – E-Mail -->
+              <div class="kf-step" data-step="8">
+                <div class="kf-q-num">08 / 08</div>
+                <div class="kf-q-title">Deine E-Mail-Adresse?</div>
+                <input type="email" class="kf-input" id="f-email" placeholder="deine@email.de" autocomplete="email">
+                <label class="kf-consent">
+                  <input type="checkbox" id="f-consent" onchange="toggleConsent()">
+                  <span>Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Kontaktaufnahme zu.</span>
+                </label>
+                <div class="kf-nav">
+                  <button class="kf-btn-back" onclick="prevStep()">← Zurück</button>
+                  <button class="kf-btn-next" id="kf-submit" onclick="submitForm()" disabled>
                     Jetzt kostenlos anfragen
                     <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                   </button>
@@ -427,7 +442,7 @@
               <div class="kf-success" id="kf-success">
                 <div class="kf-success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
                 <h3>Anfrage erhalten! 🎉</h3>
-                <p>Wir melden uns innerhalb von <strong>24 Stunden</strong> bei dir – mit deiner persönlichen Steuer- &amp; Renditeberechnung.</p>
+                <p>Wir melden uns schnellstmöglich – bei Anfragen mit kurzfristigem Kaufwunsch oft innerhalb weniger Minuten. Du bekommst deine persönliche Steuer- &amp; Renditeberechnung.</p>
                 <div class="kf-success-steps">
                   <div class="kf-success-step"><span>1</span> Erstgespräch – wir klären deine Ziele</div>
                   <div class="kf-success-step"><span>2</span> Individuelle Kalkulation (kostenlos)</div>
@@ -482,7 +497,7 @@
           <div class="kf-step-item">
             <div class="kf-step-circle">01</div>
             <div class="kf-step-name">Anfrage & Erstgespräch</div>
-            <div class="kf-step-desc-sm">Formular ausfüllen – wir rufen dich innerhalb von 24 Stunden an und klären Ziele, Budget und Region.</div>
+            <div class="kf-step-desc-sm">Formular ausfüllen – wir melden uns schnellstmöglich, bei kurzfristigem Kaufwunsch oft innerhalb weniger Minuten, und klären Ziele, Budget und Region.</div>
           </div>
           <div class="kf-step-item">
             <div class="kf-step-circle">02</div>
@@ -510,7 +525,7 @@
           <span class="kf-section-label" style="color:#e8899a;">Steuervorteile</span>
           <h2>Als Kapitalanleger<br>zahlst du deutlich<br>weniger Steuern</h2>
           <p class="kf-tax-desc">Vorteile, die Eigennutzer nicht haben. Wir zeigen dir in einem kostenlosen Erstgespräch genau, wie viel du persönlich sparen kannst.</p>
-          <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;" class="btn-accent" style="font-size:14px;">Kostenlose Steuerberechnung →</a>
+          <a href="#anfrage" onclick="document.getElementById('anfrage').scrollIntoView({behavior:'smooth'}); return false;" class="btn-accent" style="font-size:14px;">Kostenlose Steuerberechnung →</a>
           <div class="kf-tax-list">
             <div class="kf-tax-item">
               <div class="kf-tax-item-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-4"/></svg></div>
@@ -539,6 +554,9 @@
               <div class="kf-stat-wide-l">Steuerersparnis bei einer 300k-Immobilie</div>
             </div>
           </div>
+          <p style="font-size:11px;color:rgba(255,255,255,.3);line-height:1.6;margin-top:16px;">
+            Hinweis: Keine Steuer- oder Rechtsberatung. Alle Steuerangaben sind unverbindliche Beispielrechnungen. Tatsächliche Werte hängen von deiner individuellen Situation ab.
+          </p>
         </div>
       </div>
     </section>
@@ -549,12 +567,18 @@
       <h2>Starte jetzt mit deiner<br>ersten Kapitalanlage</h2>
       <p>Kostenlose Beratung & individuelle Steuerberechnung – unverbindlich & courtagefrei</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;" class="btn-accent lg">Kostenlos anfragen →</a>
+        <a href="#anfrage" onclick="document.getElementById('anfrage').scrollIntoView({behavior:'smooth'}); return false;" class="btn-accent lg">Kostenlos anfragen →</a>
         <a href="index.html" class="btn-outline-w lg" style="color:var(--grey);border-color:var(--border);">Für Bauträger &amp; Partner</a>
       </div>
     </section>
 
   </main>
+
+  <div style="background:#fff;padding:0 var(--px) 28px;">
+    <p style="max-width:1120px;margin:0 auto;font-size:11px;color:var(--lgrey);line-height:1.6;text-align:center;">
+      Hinweis: Keine Steuer- oder Rechtsberatung. Alle Steuerangaben sind unverbindliche Beispielrechnungen. Tatsächliche Werte hängen von deiner individuellen Situation ab.
+    </p>
+  </div>
 
   <div id="footer-placeholder"></div>
   <script src="main.js"></script>
@@ -589,21 +613,26 @@
     }
 
     function nextStep(step) {
-      if (step === 1 && !document.getElementById('f-name').value.trim()) { document.getElementById('f-name').focus(); return; }
-      if (step === 2 && !document.getElementById('f-phone').value.trim()) { document.getElementById('f-phone').focus(); return; }
-      if (step === 3 && !document.getElementById('f-email').value.includes('@')) { document.getElementById('f-email').focus(); return; }
-      if (step === 4 && !document.getElementById('f-alter').value) { document.getElementById('f-alter').focus(); return; }
-      if (step === 5 && !document.getElementById('f-ek').value) return;
-      if (step === 6 && !document.getElementById('f-inc').value) return;
-      if (step === 7 && !document.getElementById('f-time').value) return;
+      if (step === 1 && !document.getElementById('f-alter').value) { document.getElementById('f-alter').focus(); return; }
+      if (step === 2 && !document.getElementById('f-ek').value) return;
+      if (step === 3 && !document.getElementById('f-inc').value) return;
+      if (step === 4 && !document.getElementById('f-time').value) return;
+      if (step === 5 && !document.getElementById('f-first').value) return;
+      if (step === 6 && !document.getElementById('f-name').value.trim()) { document.getElementById('f-name').focus(); return; }
+      if (step === 7 && !document.getElementById('f-phone').value.trim()) { document.getElementById('f-phone').focus(); return; }
       cur++;
       updateUI();
     }
 
     function prevStep() { cur--; updateUI(); }
 
+    function toggleConsent() {
+      document.getElementById('kf-submit').disabled = !document.getElementById('f-consent').checked;
+    }
+
     function submitForm() {
-      if (!document.getElementById('f-first').value) return;
+      if (!document.getElementById('f-email').value.includes('@')) { document.getElementById('f-email').focus(); return; }
+      if (!document.getElementById('f-consent').checked) return;
       const data = {
         Name: document.getElementById('f-name').value,
         Telefon: document.getElementById('f-phone').value,
@@ -613,6 +642,7 @@
         Einkommen: document.getElementById('f-inc').value,
         Kaufzeitraum: document.getElementById('f-time').value,
         ErsteImmobilie: document.getElementById('f-first').value,
+        Datenschutz: 'Zugestimmt',
       };
       fetch('https://formspree.io/f/xqeybebk', {
         method: 'POST',
