@@ -7,6 +7,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'DEINE_PIXEL_ID');   /* <-- HIER deine Meta-Pixel-ID eintragen */
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=DEINE_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+
   <style>
     .kf-hero {
       min-height: 100vh;
@@ -244,6 +262,51 @@
       .kf-form-head { padding: 18px 18px 0; }
       .kf-note { padding: 0 18px 18px; }
     }
+
+    /* ── TRUST BAND ── */
+    .kf-trustband { background: #0d0d0d; border-top: 1px solid rgba(255,255,255,.06); padding: 26px var(--px); }
+    .kf-trustband-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
+    .kf-tb-item { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.55); }
+    .kf-tb-item svg { width: 17px; height: 17px; stroke: #e8899a; fill: none; stroke-width: 2; flex-shrink: 0; }
+    .kf-tb-partner { font-size: 13px; color: rgba(255,255,255,.4); font-weight: 500; }
+    .kf-tb-partner strong { color: rgba(255,255,255,.75); font-weight: 700; }
+    @media (max-width: 760px) {
+      .kf-trustband-inner { justify-content: flex-start; gap: 14px 22px; }
+      .kf-tb-item { font-size: 12px; }
+    }
+
+    /* ── PERSONALISIERTES ERGEBNIS ── */
+    .kf-result-badge { display: inline-block; background: rgba(107,30,45,.08); color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 6px 12px; border-radius: 30px; margin-bottom: 14px; }
+    .kf-result-estimate { background: var(--off); border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin: 4px 0 18px; }
+    .kf-result-estimate-n { font-size: 26px; font-weight: 800; color: var(--accent); letter-spacing: -1px; line-height: 1; margin-bottom: 5px; }
+    .kf-result-estimate-l { font-size: 12px; color: var(--lgrey); line-height: 1.5; }
+
+    /* ── FAQ ── */
+    .kf-faq { background: #fff; padding: 96px var(--px); border-top: 1px solid var(--border); }
+    .kf-faq-inner { max-width: 800px; margin: 0 auto; }
+    .kf-faq h2 { font-size: clamp(24px, 3.5vw, 42px); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 40px; line-height: 1.1; text-align: center; }
+    .kf-faq-item { border-bottom: 1px solid var(--border); }
+    .kf-faq-item summary { list-style: none; cursor: pointer; padding: 22px 0; font-size: 16px; font-weight: 700; color: var(--text); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .kf-faq-item summary::-webkit-details-marker { display: none; }
+    .kf-faq-item summary::after { content: '+'; font-size: 24px; font-weight: 400; color: var(--accent); flex-shrink: 0; transition: transform .2s; }
+    .kf-faq-item[open] summary::after { transform: rotate(45deg); }
+    .kf-faq-answer { font-size: 14px; color: var(--grey); line-height: 1.75; padding: 0 0 22px; max-width: 680px; }
+
+    /* ── STICKY MOBILE CTA ── */
+    .kf-sticky-cta { display: none; }
+    @media (max-width: 760px) {
+      .kf-sticky-cta {
+        display: block; position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
+        background: rgba(13,13,13,.96); backdrop-filter: blur(12px);
+        border-top: 1px solid rgba(255,255,255,.08); padding: 12px 16px;
+      }
+      .kf-sticky-cta a {
+        display: flex; align-items: center; justify-content: center; gap: 8px;
+        background: var(--accent); color: #fff; text-decoration: none;
+        padding: 14px; border-radius: 40px; font-size: 15px; font-weight: 700; font-family: var(--font);
+      }
+      body { padding-bottom: 70px; }
+    }
   </style>
 </head>
 <body>
@@ -441,8 +504,13 @@
               <!-- SUCCESS -->
               <div class="kf-success" id="kf-success">
                 <div class="kf-success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                <h3>Anfrage erhalten! 🎉</h3>
-                <p>Wir melden uns schnellstmöglich – bei Anfragen mit kurzfristigem Kaufwunsch oft innerhalb weniger Minuten. Du bekommst deine persönliche Steuer- &amp; Renditeberechnung.</p>
+                <span class="kf-result-badge" id="kf-result-badge">Anfrage erhalten</span>
+                <h3 id="kf-result-title">Danke – wir haben deine Anfrage! 🎉</h3>
+                <div class="kf-result-estimate" id="kf-result-estimate" style="display:none;">
+                  <div class="kf-result-estimate-n" id="kf-result-estimate-n"></div>
+                  <div class="kf-result-estimate-l">Geschätzte mögliche Steuerersparnis pro Jahr – unverbindliche Beispielrechnung, keine Steuerberatung. Deinen konkreten Wert berechnen wir kostenlos im Erstgespräch.</div>
+                </div>
+                <p id="kf-result-text">Wir melden uns schnellstmöglich – bei kurzfristigem Kaufwunsch oft innerhalb weniger Minuten – mit deiner persönlichen Steuer- &amp; Renditeberechnung.</p>
                 <div class="kf-success-steps">
                   <div class="kf-success-step"><span>1</span> Erstgespräch – wir klären deine Ziele</div>
                   <div class="kf-success-step"><span>2</span> Individuelle Kalkulation (kostenlos)</div>
@@ -460,6 +528,16 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- TRUST BAND -->
+    <section class="kf-trustband">
+      <div class="kf-trustband-inner">
+        <div class="kf-tb-partner">Partner-Projekte u.a. von <strong>FiveRocks Development</strong></div>
+        <div class="kf-tb-item"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><polyline points="9 12 11 14 15 10"/></svg> Geprüfter Finanzierungspartner</div>
+        <div class="kf-tb-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg> 100% courtagefrei</div>
+        <div class="kf-tb-item"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> DSGVO-sicher</div>
       </div>
     </section>
 
@@ -561,6 +639,33 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="kf-faq">
+      <div class="kf-faq-inner">
+        <h2>Häufige Fragen</h2>
+        <details class="kf-faq-item">
+          <summary>Was kostet mich das?</summary>
+          <div class="kf-faq-answer">Für dich als Käufer ist unsere Begleitung komplett <strong>courtagefrei</strong> – du zahlst keine Maklerprovision. Die Erstberatung, die Steuer- & Renditeberechnung und der Finanzierungscheck sind kostenlos und unverbindlich.</div>
+        </details>
+        <details class="kf-faq-item">
+          <summary>Brauche ich Eigenkapital?</summary>
+          <div class="kf-faq-answer">Je nach Bonität und Einkommen sind Finanzierungen mit wenig oder ohne Eigenkapital möglich. Unser Finanzierungspartner prüft deine individuelle Situation und zeigt dir ehrlich, was machbar ist – bevor du dich für irgendetwas entscheidest.</div>
+        </details>
+        <details class="kf-faq-item">
+          <summary>Wie viel Aufwand habe ich?</summary>
+          <div class="kf-faq-answer">Wenig. Wir übernehmen Objektsuche, Kalkulation und Finanzierungskoordination. Du triffst die Entscheidungen, wir bereiten alles vor – von der Anfrage bis zum Notartermin in klaren, geführten Schritten.</div>
+        </details>
+        <details class="kf-faq-item">
+          <summary>Welches Risiko hat eine Kapitalanlage-Immobilie?</summary>
+          <div class="kf-faq-answer">Jede Investition hat Risiken – wir gehen transparent damit um. Wir kalkulieren Mieteinnahmen, Finanzierung und laufende Kosten vorab realistisch, damit du genau weißt, worauf du dich einlässt. Keine Schönrechnerei. Dies ist keine Steuer- oder Anlageberatung.</div>
+        </details>
+        <details class="kf-faq-item">
+          <summary>Wie schnell geht es nach der Anfrage?</summary>
+          <div class="kf-faq-answer">Bei konkretem Kaufinteresse melden wir uns sehr kurzfristig – oft innerhalb weniger Minuten. Du bekommst zeitnah deine persönliche Kalkulation und passende Objektvorschläge.</div>
+        </details>
+      </div>
+    </section>
+
     <!-- BOTTOM CTA -->
     <section class="kf-bottom-cta">
       <span class="kf-section-label">Jetzt starten</span>
@@ -573,6 +678,13 @@
     </section>
 
   </main>
+
+  <!-- STICKY MOBILE CTA -->
+  <div class="kf-sticky-cta">
+    <a href="#anfrage" onclick="document.getElementById('anfrage').scrollIntoView({behavior:'smooth'}); return false;">
+      Jetzt kostenlos anfragen →
+    </a>
+  </div>
 
   <div style="background:#fff;padding:0 var(--px) 28px;">
     <p style="max-width:1120px;margin:0 auto;font-size:11px;color:var(--lgrey);line-height:1.6;text-align:center;">
@@ -630,18 +742,69 @@
       document.getElementById('kf-submit').disabled = !document.getElementById('f-consent').checked;
     }
 
+    // Lead-Scoring (analog zum Pitch-Deck) + personalisiertes Ergebnis
+    function scoreLead(ek, inc, time) {
+      let s = 0;
+      if (ek === '50.000 € oder mehr') s += 3; else if (ek === '25.000 – 50.000 €') s += 2; else if (ek === 'unter 25.000 €') s += 1;
+      if (inc === '6.000 € oder mehr') s += 3; else if (inc === '3.000 – 6.000 €') s += 2; else if (inc === 'unter 3.000 €') s += 1;
+      if (time === '0–3 Monate') s += 3; else if (time === '3–6 Monate') s += 2; else if (time === '6–12 Monate') s += 1;
+      return s;
+    }
+    function priorityFromScore(s) { return s >= 7 ? 'A' : s >= 4 ? 'B' : 'C'; }
+
+    function renderResult(ek, inc, time) {
+      const score = scoreLead(ek, inc, time);
+      const prio = priorityFromScore(score);
+      const badge = document.getElementById('kf-result-badge');
+      const title = document.getElementById('kf-result-title');
+      const text  = document.getElementById('kf-result-text');
+      const est   = document.getElementById('kf-result-estimate');
+      const estN  = document.getElementById('kf-result-estimate-n');
+
+      if (prio === 'A') {
+        badge.textContent = 'Top-Match ✓';
+        title.textContent = 'Du passt perfekt in unser Käuferprofil. 🎯';
+        text.textContent = 'Deine Angaben passen ideal zu unseren exklusiven Neubau-Projekten. Wir melden uns sehr kurzfristig – oft innerhalb weniger Minuten – mit deiner persönlichen Steuer- & Renditeberechnung.';
+      } else if (prio === 'B') {
+        badge.textContent = 'Anfrage erhalten ✓';
+        title.textContent = 'Danke – das sieht vielversprechend aus!';
+        text.textContent = 'Wir prüfen deine Angaben und melden uns schnellstmöglich mit den passenden Optionen und deiner persönlichen Steuer- & Renditeberechnung.';
+      } else {
+        badge.textContent = 'Anfrage erhalten';
+        title.textContent = 'Danke für deine Anfrage! 🎉';
+        text.textContent = 'Wir schicken dir passende Infos zur Kapitalanlage und melden uns, sobald ein für dich passendes Projekt verfügbar ist.';
+      }
+
+      // grobe Steuerersparnis-Range nach Einkommen (nur bei genügend Steuerlast sinnvoll)
+      let range = null;
+      if (inc === '6.000 € oder mehr') range = 'ca. 6.000 – 10.000 €';
+      else if (inc === '3.000 – 6.000 €') range = 'ca. 3.500 – 7.000 €';
+      if (range) { estN.textContent = range; est.style.display = 'block'; }
+      else { est.style.display = 'none'; }
+
+      return { score, prio };
+    }
+
     function submitForm() {
       if (!document.getElementById('f-email').value.includes('@')) { document.getElementById('f-email').focus(); return; }
       if (!document.getElementById('f-consent').checked) return;
+
+      const ek = document.getElementById('f-ek').value;
+      const inc = document.getElementById('f-inc').value;
+      const time = document.getElementById('f-time').value;
+      const r = renderResult(ek, inc, time);
+
       const data = {
         Name: document.getElementById('f-name').value,
         Telefon: document.getElementById('f-phone').value,
         Email: document.getElementById('f-email').value,
         Alter: document.getElementById('f-alter').value,
-        Eigenkapital: document.getElementById('f-ek').value,
-        Einkommen: document.getElementById('f-inc').value,
-        Kaufzeitraum: document.getElementById('f-time').value,
+        Eigenkapital: ek,
+        Einkommen: inc,
+        Kaufzeitraum: time,
         ErsteImmobilie: document.getElementById('f-first').value,
+        Lead_Score: r.score,
+        Prioritaet: r.prio + '-Lead',
         Datenschutz: 'Zugestimmt',
       };
       fetch('https://formspree.io/f/xqeybebk', {
@@ -649,6 +812,10 @@
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)
       }).catch(() => {});
+
+      // Meta Pixel Lead-Event
+      if (typeof fbq === 'function') { fbq('track', 'Lead', { content_name: 'Kapitalanlage Anfrage', lead_prio: r.prio }); }
+
       document.querySelectorAll('.kf-step').forEach(el => el.classList.remove('active'));
       document.getElementById('kf-success').classList.add('active');
       document.getElementById('progressFill').style.width = '100%';
